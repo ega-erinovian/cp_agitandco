@@ -494,56 +494,31 @@ footer .col-lg-2 h1{
   -o-transform: rotate(-90deg);
 }
 
-/* Home footer */
-.home-section footer{
-  background-color: var(--white);
-}
-
-.home-section footer h1,
-.home-section footer p{
-  color: var(--grey-700) !important;
-}
-
-/* Journal footer */
-.journal-section footer{
-  background-color: var(--grey-700);
-}
-
-/* journal details footer */
-.journal-details footer{
-  background-color: var(--grey-700);
-}
-
-.journal-details footer h1,
-.journal-details footer p{
-  color: var(--white) !important;
-}
-
-/* portfolio footer */
-.portfolio-section footer{
-  background-color: var(--white);
-}
-
-.portfolio-section footer h1,
-.portfolio-section footer p{
-  color: var(--grey-700) !important;
-}
-
-/* portfolio detail footer */
+/* Light footer */
+.home-section footer,
+.portfolio-section footer,
 .portfolio-details footer{
   background-color: var(--white);
 }
 
+.home-section footer h1,
+.home-section footer p,
+.portfolio-section footer h1,
+.portfolio-section footer p,
 .portfolio-details footer h1,
 .portfolio-details footer p{
   color: var(--grey-700) !important;
 }
 
-/* contact footer */
+/* Dark footer */
+.journal-section footer,
+.journal-details footer,
 .contact-section footer{
   background-color: var(--grey-700);
 }
 
+.journal-details footer h1,
+.journal-details footer p,
 .contact-section footer h1,
 .contact-section footer p{
   color: var(--white) !important;
@@ -560,24 +535,17 @@ footer .social-media a:hover i{
   -webkit-filter: brightness(.4);
 }
 
-/* Footer social media - journal page */
-.journal-section footer .social-media a i{
+/* Footer social media - dark */
+.journal-section footer .social-media a i, 
+.journal-details footer .social-media a i,
+.contact-section footer .social-media a i{
   filter: brightness(.8);
   -webkit-filter: brightness(.8);
 }
 
-.journal-section footer .social-media a:hover i{
-  filter: brightness(1);
-  -webkit-filter: brightness(1);
-}
-
-/* Footer social media - journal detail page */
-.journal-details footer .social-media a i{
-  filter: brightness(.8);
-  -webkit-filter: brightness(.8);
-}
-
-.journal-details footer .social-media a:hover i{
+.journal-section footer .social-media a:hover i,
+.journal-details footer .social-media a:hover i,
+.contact-section footer .social-media a:hover i{
   filter: brightness(1);
   -webkit-filter: brightness(1);
 }
