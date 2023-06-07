@@ -272,6 +272,14 @@ nav a.active{
   -webkit-filter: brightness(1.15);
 }
 
+.journal-item span{
+  text-transform: capitalize;
+}
+
+.journal-item button h2{
+  text-transform: capitalize;
+}
+
 /*** JOURNAL DETAILS ***/
 .journal-details .journal-details-content h1{
   color: var(--grey-700) !important;
@@ -342,9 +350,18 @@ nav a.active{
   -webkit-filter: brightness(1.15);
 }
 
+.portfolio-item span{
+  text-transform: capitalize;
+}
+
+.portfolio-item button h2{
+  text-transform: capitalize;
+}
+
 /**** PORTFOLIO DETAILS ****/
 .portfolio-details header.portfolio{
   overflow: hidden;
+  text-transform: capitalize;
 }
 
 .portfolio-details header.portfolio{
@@ -530,4 +547,37 @@ footer .col-lg-2 h1{
 .contact-section footer h1,
 .contact-section footer p{
   color: var(--white) !important;
+}
+
+/* Footer social media */
+footer .social-media a i{
+  filter: brightness(.6);
+  -webkit-filter: brightness(.6);
+}
+
+footer .social-media a:hover i{
+  filter: brightness(.4);
+  -webkit-filter: brightness(.4);
+}
+
+/* Footer social media - journal page */
+.journal-section footer .social-media a i{
+  filter: brightness(.8);
+  -webkit-filter: brightness(.8);
+}
+
+.journal-section footer .social-media a:hover i{
+  filter: brightness(1);
+  -webkit-filter: brightness(1);
+}
+
+/* Footer social media - journal detail page */
+.journal-details footer .social-media a i{
+  filter: brightness(.8);
+  -webkit-filter: brightness(.8);
+}
+
+.journal-details footer .social-media a:hover i{
+  filter: brightness(1);
+  -webkit-filter: brightness(1);
 }

@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="https://iluminen.com/wp-content/uploads/2022/10/logo-iluminen-new-1.png" alt="logo" width="75" />
+          <img src="assets/img/me.png" alt="logo" width="75" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

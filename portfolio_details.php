@@ -22,59 +22,59 @@
 </head>
 <body>
     <section class="portfolio-details">
-        <header class="portfolio">
-            <nav class="navbar navbar-expand-lg">
-              <div class="container">
-                <a class="navbar-brand" href="#">
-                  <img src="https://iluminen.com/wp-content/uploads/2022/10/logo-iluminen-new-1.png" alt="logo" width="75" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                  <div class="navbar-nav">
-                    <a class="nav-link me-4" href="index.php" id="navLink">Home</a>
-                    <a class="nav-link me-4" href="./journal.php?page-nr=1" id="navLink">Journal</a>
-                    <a class="nav-link me-4 active" href="./portfolio.php?page-nr=1" id="navLink">Portofolio</a>
-                    <a class="nav-link me-4" href="#" id="navLink">About Us</a>
-                    <a class="nav-link me-4" href="contact.php" id="navLink">Contact</a>
-                    <a class="nav-link me-4" href="#" id="navLink"><i class="bi bi-search"></i></a>
-                  </div>
-                </div>
+      <header class="portfolio">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <a class="navbar-brand" href="#">
+              <img src="assets/img/me.png" alt="logo" width="75" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link me-4" href="index.php" id="navLink">Home</a>
+                <a class="nav-link me-4" href="./journal.php?page-nr=1" id="navLink">Journal</a>
+                <a class="nav-link me-4 active" href="./portfolio.php?page-nr=1" id="navLink">Portofolio</a>
+                <a class="nav-link me-4" href="#" id="navLink">About Us</a>
+                <a class="nav-link me-4" href="contact.php" id="navLink">Contact</a>
+                <a class="nav-link me-4" href="#" id="navLink"><i class="bi bi-search"></i></a>
               </div>
-            </nav>
-            <?php 
-              $query = mysqli_query($connect, "SELECT * FROM projects WHERE id_project='$_GET[id_project]'");
-              while($data=mysqli_fetch_array($query)){
-                  $id_project = $data[0];
-                  $name       = $data[1];
-                  $lokasi     = $data[2];
-                  $kategori   = $data[4];
-                  $img        = $data[5];
-            ?>
-            <div class="portfolio-details-title text-center w-100 h-75 d-flex flex-column align-items-center justify-content-center">
-                <p><?= $kategori ?></p>
-                <h1><?= $name ?> | <?= $lokasi ?></h1>
             </div>
-            <div class="scrolldown text-light text-center w-100">
-                <i class="bi bi-arrow-down"></i>
-            </div>
-        </header>
-        <div class="portfolio-details-content py-5">
-            <div class="container w-100 d-flex flex-column align-items-center justify-content-center">
-                <div class="portfolio-comp-logo w-100 d-flex align-items-center justify-content-center">
-                    <img src="https://iluminen.com/wp-content/uploads/2022/10/logo-iluminen-new-1.png" alt="logo" width="50" />
-                </div>
-                <div class="portfolio-details-gallery w-50 d-flex flex-wrap mt-5 g-4">
-                    <img class="landscape" src="https://iluminen.com/wp-content/uploads/2023/02/001-storyboard-3.jpg" alt="portfolio-1">
-                    <img class="w-50" src="https://images.pexels.com/photos/13293704/pexels-photo-13293704.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="portfolio-2">
-                    <img class="w-50" src="https://images.pexels.com/photos/15124705/pexels-photo-15124705/free-photo-of-newlyweds-walking-in-darkness.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                    <img src="https://iluminen.com/wp-content/uploads/2023/02/007-storyboard-3.jpg" alt="portfolio-4">
-                </div>
-            </div>
+          </div>
+        </nav>
+        <?php 
+          $query = mysqli_query($connect, "SELECT * FROM projects WHERE id_project='$_GET[id_project]'");
+          while($data=mysqli_fetch_array($query)){
+            $id_project = $data[0];
+            $name       = $data[1];
+            $lokasi     = $data[2];
+            $kategori   = $data[4];
+            $img        = $data[5];
+        ?>
+        <div class="portfolio-details-title text-center w-100 h-75 d-flex flex-column align-items-center justify-content-center">
+          <p><?= $kategori ?></p>
+          <h1><?= $name ?> | <?= $lokasi ?></h1>
         </div>
-        <?php } ?>
-        <?php include("footer.html"); ?>
+        <div class="scrolldown text-light text-center w-100">
+          <i class="bi bi-arrow-down"></i>
+        </div>
+      </header>
+      <div class="portfolio-details-content py-5">
+        <div class="container w-100 d-flex flex-column align-items-center justify-content-center">
+          <div class="portfolio-comp-logo w-100 d-flex align-items-center justify-content-center">
+            <img src="assets/img/me.png" alt="logo" width="50" />
+          </div>
+          <div class="portfolio-details-gallery w-50 d-flex flex-wrap mt-5 g-4">
+            <img class="landscape" src="https://iluminen.com/wp-content/uploads/2023/02/001-storyboard-3.jpg" alt="portfolio-1">
+            <img class="w-50" src="https://images.pexels.com/photos/13293704/pexels-photo-13293704.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="portfolio-2">
+            <img class="w-50" src="https://images.pexels.com/photos/15124705/pexels-photo-15124705/free-photo-of-newlyweds-walking-in-darkness.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+            <img src="https://iluminen.com/wp-content/uploads/2023/02/007-storyboard-3.jpg" alt="portfolio-4">
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+      <?php include("footer.html"); ?>
     </section>
     
     <!-- Vendor JS Files -->
