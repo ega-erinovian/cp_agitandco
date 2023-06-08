@@ -64,7 +64,7 @@
                         <div class="portfolio-content category">
                             <form action="./portfolios.php" method="get" enctype="multipart/form-data">
                                 <input type="hidden" name="page-nr" value="1">
-                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <input type="hidden" name="kategori" value="Wedding">
                                 <button type="submit"><h2>Wedding</h2></button>
                             </form>
                         </div>
@@ -73,7 +73,7 @@
                         <div class="portfolio-content category">
                             <form action="./portfolios.php" method="get" enctype="multipart/form-data">
                                 <input type="hidden" name="page-nr" value="1">
-                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <input type="hidden" name="kategori" value="Engagement">
                                 <button type="submit"><h2>Engagement</h2></button>
                             </form>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="portfolio-content category">
                             <form action="./portfolios.php" method="get" enctype="multipart/form-data">
                                 <input type="hidden" name="page-nr" value="1">
-                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <input type="hidden" name="kategori" value="Family">
                                 <button type="submit"><h2>Family</h2></button>
                             </form>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="portfolio-content category">
                             <form action="./portfolios.php" method="get" enctype="multipart/form-data">
                                 <input type="hidden" name="page-nr" value="1">
-                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <input type="hidden" name="kategori" value="Film">
                                 <button type="submit"><h2>Film</h2></button>
                             </form>
                         </div>
@@ -100,7 +100,7 @@
                         <div class="portfolio-content category">
                             <form action="./portfolios.php" method="get" enctype="multipart/form-data">
                                 <input type="hidden" name="page-nr" value="1">
-                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <input type="hidden" name="kategori" value="Etc">
                                 <button type="submit"><h2>Etc</h2></button>
                             </form>
                         </div>

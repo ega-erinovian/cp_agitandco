@@ -50,10 +50,10 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="...">
+                        <img src="https://iluminen.com/wp-content/uploads/2022/09/KICS000043-scaled-1.jpg" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <img src="https://images.unsplash.com/photo-1583939411023-14783179e581?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="...">
+                        <img src="https://iluminen.com/wp-content/uploads/2021/07/kintamani-bedugul-indonesia-jenice-darwin-connection-session-iluminen-bali-photography-junebug-photobug-dirtybootsmessyhair-destination-photographer001-scaled-1.jpg" class="d-block w-100" alt="...">
                     </div>
                 </div>
             </div>

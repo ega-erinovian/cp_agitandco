@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </nav>
-            <p class="miring work-medium visible-md visible-lg ">Portfolio</p>
+            <p class="miring work-medium visible-md visible-lg "><?= $_GET['kategori'] ?></p>
             <div class="scrolldown text-light text-center w-100">
                 <i class="bi bi-arrow-down"></i>
             </div>
