@@ -70,7 +70,7 @@
                             $start = $page * $rows_per_page;
                         }
                         
-                        $query = mysqli_query($connect, "SELECT * FROM projects LIMIT $start, $rows_per_page");
+                        $query = mysqli_query($connect, "SELECT * FROM projects WHERE kategori LIKE '".$_GET['kategori']."' LIMIT $start, $rows_per_page");
                         while($data=mysqli_fetch_array($query)){
                             $id_project = $data[0];
                             $name       = $data[1];

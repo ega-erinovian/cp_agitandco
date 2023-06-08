@@ -31,6 +31,9 @@
         
         if(isset($_FILES['img_file'])){
             $originalArray = explode(',', $tmp_img_name);
+            if($tmp_img_name==''){
+                $originalArray=[];
+            }
 
             // Loop melalui setiap file yang diunggah
             foreach($_FILES['img_file']['tmp_name'] as $key => $tmp_name) {
@@ -77,26 +80,81 @@
             break;
         case 'edit':
             // Hapus gambar yang dicentang di kelola_project
-            if(isset($delete_img)){
-                $originalArray = explode(',', $tmp_img_name);
-                foreach($delete_img as $img){
-                    $path = realpath('../assets/img/portofolio/'.$id_project.'/'.$img);
-                    unlink($path);
+            // if(isset($delete_img)){
+            //     $originalArray = explode(',', $tmp_img_name);
+            //     foreach($delete_img as $img){
+            //         $path = realpath('../assets/img/portofolio/'.$id_project.'/'.$img);
+            //         unlink($path);
 
-                    // Menghapus nilai pada array
-                    foreach ($originalArray as $key => $value) {
-                        if ($value == $img) {
-                            unset($originalArray[$key]);
-                        }
-                    }
+            //         // Menghapus nilai pada array
+            //         foreach ($originalArray as $key => $value) {
+            //             if ($value == $img) {
+            //                 unset($originalArray[$key]);
+            //             }
+            //         }
+            //     }
+
+            //     $string_img = implode(",", $originalArray);
+            // }
+
+            if(empty($string_img) == 0){
+                // $query = "UPDATE ".$tableName." SET `id_project`='$id_project', `name`='$nama', `lokasi`='$lokasi', `idyoutube`='$idyoutube', `kategori`='$kategori', `img`='$string_img' WHERE `id_project` = '$id_project'";
+                $query = "UPDATE " . $tableName . " SET ";
+                $setClauses = [];
+
+                if (!empty($id_project)) {
+                    $setClauses[] = "`id_project` = '$id_project'";
                 }
 
-                $string_img = implode(",", $originalArray);
-            }
+                if (!empty($nama)) {
+                    $setClauses[] = "`name` = '$nama'";
+                }
 
-            if(isset($string_img)){
-                $query = "UPDATE ".$tableName." SET `id_project`='$id_project', `name`='$nama', `lokasi`='$lokasi', `idyoutube`='$idyoutube', `kategori`='$kategori', `img`='$string_img' WHERE `id_project` = '$id_project'";
-            }else{
+                if (!empty($lokasi)) {
+                    $setClauses[] = "`lokasi` = '$lokasi'";
+                }
+
+                if (!empty($id_youtube)) {
+                    $setClauses[] = "`id_youtube` = '$id_youtube'";
+                }
+                
+                if (!empty($kategori)) {
+                    $setClauses[] = "`kategori` = '$kategori'";
+                }
+
+                if (isset($delete_img)) {
+                    $originalArray = explode(',', $tmp_img_name);
+                    foreach ($delete_img as $img) {
+                        $path = realpath('../assets/img/projects/' . $id_project . '/' . $img);
+                        unlink($path);
+                
+                        // Menghapus nilai pada array
+                        foreach ($originalArray as $key => $value) {
+                            if ($value == $img) {
+                                unset($originalArray[$key]);
+                            }
+
+                        }
+
+                    }
+                
+                    if (count($originalArray) > 1) {
+                        $setClauses[0] .= ", `img` = '" . implode(",", $originalArray) . "'";
+                    } elseif (count($originalArray) == 1) {
+                        $setClauses[0] .= ", `img` = '" . reset($originalArray) . "'";
+                    } else {
+                        $setClauses[0] .= ", `img` = NULL";
+                    }
+                }
+                else{
+                    $setClauses[]="img='$string_img'";
+                }
+
+                $query .= implode(", ", $setClauses);
+                $query .= " WHERE `id_project` = '$id_project'";
+
+            }
+            else{
                 $query = "UPDATE ".$tableName." SET `id_project`='$id_project', `name`='$nama', `lokasi`='$lokasi', `idyoutube`='$idyoutube', `kategori`='$kategori' WHERE `id_project` = '$id_project'";
             }
             

@@ -154,10 +154,10 @@
               if(isset($_GET['kelola'])){
                 // 'Tambah' condition
                 if($_GET['kelola'] == 'tambah'){
-                  $kategori       ="";
-                  $judul   ="";
-                  $despkripsi      ="";
+                  // $id_journal       ="";
                   $kategori     ="";
+                  $judul   ="";
+                  $deskripsi      ="";
                   $tanggal ="";
                 }else{
                     // 'Edit' Condition - Form terisi dengan data didatabase
@@ -166,7 +166,7 @@
                       $id_journal =$data[0];
                       $kategori       =$data[1];
                       $judul   = $data[2];
-                      $despkripsi  =$data[3];
+                      $deskripsi  =$data[3];
                       $tanggal   =$data[4];
                       $img_files  =$data[5];
                     }
@@ -175,7 +175,6 @@
             ?>
             <div class="col">
               <div class="card recent-sales overflow-auto">
-
                 <div class="card-body">
                   <div class="row py-4">
                     <div class="col">
@@ -187,34 +186,34 @@
                     <input type="hidden" value=<?= $_GET['kelola'] ?> name="kelola" />
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label fw-bold">Journal ID</label>
-                      <input type="text" class="form-control bg-dark-light" name="id_journal" id="projectName" value=<?= $id_journal ?> readonly/>
+                      <input type="text" readonly class="form-control bg-dark-light" name="id_journal" id="projectName" value=<?= $id_journal ?> />
                       <div class="form-text"><span class="text-danger">*</span> Terisi otomatis</div>
                     </div>
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label fw-bold fw-bold">Kategori</label>
-                      <input type="text" class="form-control" name="kategori" id="projectName" placeholder="Kategori" value=<?= $kategori ?>/>
+                      <!-- <input type="text" class="form-control" name="kategori" id="projectName" placeholder="Kategori" value=<?= $kategori ?>> -->
+                      <select class="form-select" name="kategori" aria-label="Default select example">
+                        <option selected disabled>Open this select menu</option>
+                        <option value="Event" <?php if($kategori =="Event") echo 'selected'; ?>>Event</option>
+                        <option value="Lifestyle" <?php if($kategori =="Lifestyle") echo 'selected'; ?>>Lifestyle</option>
+                        <option value="Travel" <?php if($kategori =="Travel") echo 'selected'; ?>>Travel</option>
+                        <!-- <option value="Family-Shoot" <?php if($kategori =="Family-Shoot") echo 'selected'; ?>>Family Shoot</option>
+                        <option value="Themed-Shoot" <?php if($kategori =="Themed-Shoot") echo 'selected'; ?>>Themed Shoot</option> -->
+
+                      </select>
                     </div>
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label fw-bold fw-bold">Judul</label>
-                      <input type="text" class="form-control " name="judul" id="projectName" placeholder="Masukkan Judul" value=<?= $judul ?>/>
+                      <input type="text" class="form-control " name="judul" id="projectName" placeholder="Masukkan Judul" value=<?= $judul ?>>
                       <!-- <?php if($_GET['kelola'] != 'edit') echo '<div class="form-text"><span class="text-danger">*</span> Terisi otomatis</div>'; ?> -->
                     </div>
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label fw-bold fw-bold">Deskripsi</label>
-                      <input type="text" class="form-control" name="deskripsi" id="projectName" placeholder="Masukkan Id Youtube" value=<?= $despkripsi ?> />
+                      <input type="text" class="form-control" name="deskripsi" id="projectName" placeholder="Masukkan Deskripsi" value=<?= $deskripsi ?> >
                     </div>
                     <div class="mb-3">
                       <label for="exampleFormControlInput1" class="form-label fw-bold fw-bold">Tanggal</label>
-                      <!-- <select class="form-select" name="kategori" aria-label="Default select example">
-                        <option selected disabled>Open this select menu</option>
-                        <option value="Pre-Wedding" <?php if($kategori =="Pre-Wedding") echo 'selected'; ?>>Pre Wedding</option>
-                        <option value="Wedding-Day" <?php if($kategori =="Wedding-Day") echo 'selected'; ?>>Wedding Day</option>
-                        <option value="Studio-Shoot" <?php if($kategori =="Studio-Shoot") echo 'selected'; ?>>Studio Shoot</option>
-                        <option value="Family-Shoot" <?php if($kategori =="Family-Shoot") echo 'selected'; ?>>Family Shoot</option>
-                        <option value="Themed-Shoot" <?php if($kategori =="Themed-Shoot") echo 'selected'; ?>>Themed Shoot</option>
-
-                      </select> -->
-                      <input type="date" class="form-control" name="tanggal" id="projectName" value=<?= $tanggal ?>/>
+                      <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="tanggal" id="projectName" value=<?= $tanggal ?>>
                     </div>
                     <div class="mb-3">
                       <label for="fileInput" class="form-label fw-bold fw-bold">Unggah Gambar</label><br/>
@@ -222,8 +221,11 @@
                     </div>
                     <?php
                       if($_GET['kelola'] == 'edit'){
-                    ?>
+                        ?>
                     <div class="mb-3">
+                        <?php
+                        if ($img_files!=''){
+                        ?>
                       <label for="fileInput" class="form-label fw-bold fw-bold">Daftar Gambar</label>
                       <div class="form-text"><span class="text-danger">*</span> Centang untuk menghapus gambar</div>
                       <table class="table datatable">
@@ -244,6 +246,7 @@
                           <tr>
                             <td><input type="checkbox" name="delete_img[ ]" value="<?= $img ?>"></td>
                             <td><img style="width: 75px" src='<?php echo "../assets/img/journal/".$id_journal."/".$img; ?>' alt="<?= $id_journal ?>"></td>
+                            
                             <td><?= $img ?></td>
                           </tr>
                           <?php } ?>
@@ -257,6 +260,7 @@
                         </tfoot>
                       </table>
                     </div>
+                    <?php }?>
                     <?php } ?>
                     <div class="row">
                       <div class="col-12" style="text-align: end;">

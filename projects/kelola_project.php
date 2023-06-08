@@ -155,7 +155,7 @@
                 // 'Tambah' condition
                 if($_GET['kelola'] == 'tambah'){
                   $nama       ="";
-                  $datetime   =date("Y-m-d\TH:i");
+                  $lokasi   ="";
                   $idyoutube      ="";
                   $kategori     ="";
                 }else{
@@ -211,10 +211,11 @@
                       <select class="form-select" name="kategori" aria-label="Default select example">
                         <option selected disabled>Open this select menu</option>
                         <option value="Pre-Wedding" <?php if($kategori =="Pre-Wedding") echo 'selected'; ?>>Pre Wedding</option>
-                        <option value="Wedding-Day" <?php if($kategori =="Wedding-Day") echo 'selected'; ?>>Wedding Day</option>
-                        <option value="Studio-Shoot" <?php if($kategori =="Studio-Shoot") echo 'selected'; ?>>Studio Shoot</option>
-                        <option value="Family-Shoot" <?php if($kategori =="Family-Shoot") echo 'selected'; ?>>Family Shoot</option>
-                        <option value="Themed-Shoot" <?php if($kategori =="Themed-Shoot") echo 'selected'; ?>>Themed Shoot</option>
+                        <option value="Wedding" <?php if($kategori =="Wedding") echo 'selected'; ?>>Wedding</option>
+                        <option value="Studio" <?php if($kategori =="Studio") echo 'selected'; ?>>Studio</option>
+                        <option value="Family" <?php if($kategori =="Family") echo 'selected'; ?>>Family</option>
+                        <option value="Film" <?php if($kategori =="Film") echo 'selected'; ?>>Film</option>
+                        <option value="Etc" <?php if($kategori =="Etc") echo 'selected'; ?>>Etc</option>
 
                       </select>
                     </div>
@@ -225,6 +226,9 @@
                     <?php
                       if($_GET['kelola'] == 'edit'){
                     ?>
+                            <?php
+                            if ($img_files!=''){
+                            ?>
                     <div class="mb-3">
                       <label for="fileInput" class="form-label fw-bold fw-bold">Daftar Gambar</label>
                       <div class="form-text"><span class="text-danger">*</span> Centang untuk menghapus gambar</div>
@@ -259,6 +263,7 @@
                         </tfoot>
                       </table>
                     </div>
+                    <?php }?>
                     <?php } ?>
                     <div class="row">
                       <div class="col-12" style="text-align: end;">
