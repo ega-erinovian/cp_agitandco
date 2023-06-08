@@ -30,11 +30,10 @@
             <div class="collapse navbar-collapse justify-content-end navbar-right" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                 <a class="nav-link me-4"style="color:#000000 !important" href="index.php">Home</a>
-                <a class="nav-link me-4"style="color:#000000 !important" href="./journal.php?page-nr=1">Journal</a>
-                <a class="nav-link me-4"style="color:#000000 !important" href="./portfolio.php?page-nr=1">Portofolio</a>
-                <a class="nav-link me-4"style="color:#000000 !important" href="#">About Us</a>
-                <a class="nav-link me-4 active"style="color:#000000 !important" href="#">Contact</a>
-                <a class="nav-link me-4"style="color:#000000 !important" href="#"><i class="bi bi-search"></i></a>
+                <a class="nav-link me-4"style="color:#000000 !important" href="journal.php?page-nr=1">Journal</a>
+                <a class="nav-link me-4"style="color:#000000 !important" href="portfolio.php">Portofolio</a>
+                <a class="nav-link me-4"style="color:#000000 !important" href="about.php">About Us</a>
+                <a class="nav-link me-4 active"style="color:#000000 !important" href="contact.php">Contact</a>
                 </div>
             </div>
             </div>

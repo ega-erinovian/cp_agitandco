@@ -23,8 +23,8 @@
 </head>
 <body>
     <section class="portfolio-section">
-        <header class="portfolio">
-            <nav class="navbar navbar-expand-lg fixed-top">
+        <header class="portfolio" style="background-image: url(https://iluminen.com/wp-content/uploads/2022/11/088-storyboard.jpg);">
+            <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                       <img src="assets/img/me.png" alt="logo" width="75" />
@@ -36,10 +36,9 @@
                       <div class="navbar-nav">
                         <a class="nav-link me-4" href="index.php" id="navLink">Home</a>
                         <a class="nav-link me-4" href="./journal.php?page-nr=1" id="navLink">Journal</a>
-                        <a class="nav-link me-4 active" href="./portfolio.php?page-nr=1" id="navLink">Portofolio</a>
-                        <a class="nav-link me-4" href="#" id="navLink">About Us</a>
+                        <a class="nav-link me-4 active" href="./portfolio.php" id="navLink">Portofolio</a>
+                        <a class="nav-link me-4" href="about.php" id="navLink">About Us</a>
                         <a class="nav-link me-4" href="contact.php" id="navLink">Contact</a>
-                        <a class="nav-link me-4" href="#" id="navLink"><i class="bi bi-search"></i></a>
                       </div>
                     </div>
                 </div>
@@ -48,92 +47,66 @@
                 <i class="bi bi-arrow-down"></i>
             </div>
         </header>
+        <p class="miring work-medium visible-md visible-lg ">Portfolio</p>
         <div class="portfolio-container" id='portfolio'>
             <div class="container-fluid">
                 <div class="row portfolios-wrapper">
-                    <?php
-                        // Setting the number of rows to display in a page.
-                        $rows_per_page = 6;
-    
-                        // Setting the start from, value.
-                        $start = 0;
-                        
-                        // Get total number of nr rows
-                        $records = $connect->query("SELECT * FROM projects");
-                        $nr_of_rows = $records->num_rows;
-                        
-                        // calculating the nr of pages
-                        $pages = ceil($nr_of_rows / $rows_per_page);
-                        
-                        if(isset($_GET["page-nr"])){
-                            $page = $_GET["page-nr"] - 1;
-                            $start = $page * $rows_per_page;
-                        }
-                        
-                        $query = mysqli_query($connect, "SELECT * FROM projects LIMIT $start, $rows_per_page");
-                        while($data=mysqli_fetch_array($query)){
-                            $id_project = $data[0];
-                            $name       = $data[1];
-                            $lokasi     = $data[2];
-                            $kategori   = $data[4];
-                            $img        = $data[5];
-                    ?>
-                    <div class="portfolio-item col-lg-6 text-light">
-                        <div class="portfolio-content">
-                            <span><?= $kategori ?></span>
-                            <form action="./portfolio_details.php" method="get" enctype="multipart/form-data">
-                                <input type="hidden" name="id_project" value=<?= $id_project ?>>
-                                <button type="submit"><h2><?= $name." | ".$lokasi  ?></h2></button>
+                    <div class="portfolio-item col-12 text-light">
+                        <div class="portfolio-content category">
+                            <form action="./portfolios.php" method="get" enctype="multipart/form-data">
+                                <input type="hidden" name="page-nr" value="1">
+                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <button type="submit"><h2>Pre-Wedding</h2></button>
                             </form>
                         </div>
                     </div>
-                    <?php } ?>
+                    <div class="portfolio-item col-12 text-light" style="background-image:linear-gradient(#2b262384,#2b262384), url(https://iluminen.com/wp-content/uploads/2023/02/086-storyboard.jpg);">
+                        <div class="portfolio-content category">
+                            <form action="./portfolios.php" method="get" enctype="multipart/form-data">
+                                <input type="hidden" name="page-nr" value="1">
+                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <button type="submit"><h2>Wedding</h2></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portfolio-item col-12 text-light" style="background-image:linear-gradient(#2b262384,#2b262384), url(https://iluminen.com/wp-content/uploads/2022/09/060-storyboard-2-1.jpg);">
+                        <div class="portfolio-content category">
+                            <form action="./portfolios.php" method="get" enctype="multipart/form-data">
+                                <input type="hidden" name="page-nr" value="1">
+                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <button type="submit"><h2>Engagement</h2></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portfolio-item col-12 text-light" style="background-image:linear-gradient(#2b262384,#2b262384), url(https://images.pexels.com/photos/5638747/pexels-photo-5638747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+                        <div class="portfolio-content category">
+                            <form action="./portfolios.php" method="get" enctype="multipart/form-data">
+                                <input type="hidden" name="page-nr" value="1">
+                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <button type="submit"><h2>Family</h2></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portfolio-item col-12 text-light" style="background-image:linear-gradient(#2b262384,#2b262384), url(https://images.pexels.com/photos/1870438/pexels-photo-1870438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+                        <div class="portfolio-content category">
+                            <form action="./portfolios.php" method="get" enctype="multipart/form-data">
+                                <input type="hidden" name="page-nr" value="1">
+                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <button type="submit"><h2>Film</h2></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="portfolio-item col-12 text-light" style="background-image:linear-gradient(#2b262384,#2b262384), url(https://images.pexels.com/photos/2962403/pexels-photo-2962403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+                        <div class="portfolio-content category">
+                            <form action="./portfolios.php" method="get" enctype="multipart/form-data">
+                                <input type="hidden" name="page-nr" value="1">
+                                <input type="hidden" name="kategori" value="Pre-Wedding">
+                                <button type="submit"><h2>Etc</h2></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="pagination-container w-100 d-flex justify-content-center align-items-center py-3">
-            <ul class="pagination">
-                <!-- Go to first page -->
-                <?php 
-                    if(isset($_GET["page-nr"]) && $_GET["page-nr"]>1){ ?>     
-                        <li><a href="portfolio.php?page-nr=1#portfolio"><<</a></li>
-                <?php } ?>
-
-                <!-- Got o previous page -->
-                <?php 
-                    if(isset($_GET["page-nr"]) && $_GET["page-nr"] > 1){ ?>
-                        <li><a href="portfolio.php?page-nr=<?= $_GET["page-nr"] - 1 ?>#portfolio"><</a></li>
-                <?php
-                    }else{?>
-                        <li><a><</a></li>
-                <?php } ?>
-                <?php  
-                    for($counter = 1; $counter <= $pages; $counter++){
-                        ?>
-                        <li class="mx-1"><a <?php if($_GET['page-nr']==$counter) echo "class='active'" ?> href="portfolio.php?page-nr=<?= $counter ?>#portfolio"><?= $counter ?></a></li>
-                        <?php
-                    }
-                ?>
-
-                <!-- Got o next page -->
-                <?php 
-                    if(isset($_GET["page-nr"])){ ?>
-                        <li><a href="portfolio.php?page-nr=2#portfolio">></a></li>
-                <?php
-                    }else{
-                        if($_GET["page-nr"] >= $pages){ ?>
-                            <li><a>></a></li>
-                <?php   }else{ ?>
-                            <li><a href="portfolio.php?page-nr=<?= $_GET["page-nr"] + 1 ?>#portfolio">></a></li>
-                <?php   }?>
-                <?php } ?>
-
-                <!-- Go to last page -->
-                <?php 
-                    if(isset($_GET["page-nr"]) && $_GET["page-nr"]<$pages){ ?>     
-                        <li><a href="portfolio.php?page-nr=<?= $pages ?>#portfolio">>></a></li>
-                <?php } ?>
-            </ul>
         </div>
         <?php include("footer.html"); ?>
     </section>

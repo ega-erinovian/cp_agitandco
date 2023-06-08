@@ -19,7 +19,15 @@
       return document.querySelector(el)
     }
   }
-
+  // sembunyi
+  // function toggleDiv(divId) {
+  //   var div = document.getElementById(divId);
+  //   if (div.style.display === "none") {
+  //       div.style.display = "block";
+  //   } else {
+  //       div.style.display = "none";
+  //   }
+  //   }
   /**
    * Easy event listener function
    */
@@ -184,34 +192,7 @@
     }
   });
 
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, true);
-    }
-
-  });
-
+ 
   /**
    * Initiate portfolio lightbox 
    */

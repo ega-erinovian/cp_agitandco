@@ -24,7 +24,7 @@
 <body>
     <section class="journal-section">
         <header class="journal">
-            <nav class="navbar navbar-expand-lg fixed-top">
+            <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                       <img src="assets/img/me.png" alt="logo" width="75" />
@@ -36,10 +36,9 @@
                       <div class="navbar-nav">
                         <a class="nav-link me-4" href="index.php" id="navLink">Home</a>
                         <a class="nav-link me-4 active" href="./journal.php?page-nr=1" id="navLink">Journal</a>
-                        <a class="nav-link me-4" href="./portfolio.php?page-nr=1" id="navLink">Portofolio</a>
-                        <a class="nav-link me-4" href="#" id="navLink">About Us</a>
+                        <a class="nav-link me-4" href="./portfolio.php" id="navLink">Portofolio</a>
+                        <a class="nav-link me-4" href="about.php" id="navLink">About Us</a>
                         <a class="nav-link me-4" href="contact.php" id="navLink">Contact</a>
-                        <a class="nav-link me-4" href="#" id="navLink"><i class="bi bi-search"></i></a>
                       </div>
                     </div>
                 </div>
@@ -48,6 +47,7 @@
                 <i class="bi bi-arrow-down"></i>
             </div>
         </header>
+        <p class="miring work-medium visible-md visible-lg ">Journal</p>
         <div class="journal-container" id='journal'>
             <div class="container-fluid">
                 <div class="row journals-wrapper">
@@ -113,16 +113,22 @@
                     }
                 ?>
 
-                <!-- Got o next page -->
+                <!-- Go to next page -->
                 <?php 
-                    if(isset($_GET["page-nr"])){ ?>
-                        <li><a href="journal.php?page-nr=2#journal">></a></li>
+                    if(isset($_GET["page-nr"])){ 
+                        if($_GET["page-nr"] == 1){?>
+                            <li><a>></a></li>
+                    <?php
+                        }else{
+                    ?>
+                        <li><a href="portfolios.php?page-nr=2#portfolio">></a></li>
+                    <?php } ?>
                 <?php
                     }else{
-                        if($_GET["page-nr"] >= $pages){ ?>
+                        if($_GET["page-nr"] > $pages){ ?>
                             <li><a>></a></li>
                 <?php   }else{ ?>
-                            <li><a href="journal.php?page-nr=<?= $_GET["page-nr"] + 1 ?>#journal">></a></li>
+                            <li><a href="portfolios.php?page-nr=<?= $_GET["page-nr"] + 1 ?>#portfolio">></a></li>
                 <?php   }?>
                 <?php } ?>
 

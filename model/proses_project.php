@@ -94,7 +94,7 @@
                 $string_img = implode(",", $originalArray);
             }
 
-            if(empty($string_img) == 0){
+            if(isset($string_img)){
                 $query = "UPDATE ".$tableName." SET `id_project`='$id_project', `name`='$nama', `lokasi`='$lokasi', `idyoutube`='$idyoutube', `kategori`='$kategori', `img`='$string_img' WHERE `id_project` = '$id_project'";
             }else{
                 $query = "UPDATE ".$tableName." SET `id_project`='$id_project', `name`='$nama', `lokasi`='$lokasi', `idyoutube`='$idyoutube', `kategori`='$kategori' WHERE `id_project` = '$id_project'";

@@ -24,7 +24,7 @@
 <body>
     <section class="home-section">
         <header class="home">
-            <nav class="navbar navbar-expand-lg fixed-top">
+            <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <a class="navbar-brand" href="#">
                       <img src="assets/img/me.png" alt="logo" width="75" />
@@ -33,18 +33,17 @@
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
+                       <div class="navbar-nav">
                         <a class="nav-link me-4 active" href="index.php" id="navLink">Home</a>
-                        <a class="nav-link me-4" href="./journal.php?page-nr=1" id="navLink">Journal</a>
-                        <a class="nav-link me-4" href="./portfolio.php?page-nr=1" id="navLink">Portofolio</a>
-                        <a class="nav-link me-4" href="#" id="navLink">About Us</a>
-                        <a class="nav-link me-4" href="./contact.php" id="navLink">Contact</a>
-                        <a class="nav-link me-4" href="#" id="navLink"><i class="bi bi-search"></i></a>
+                        <a class="nav-link me-4" href="journal.php?page-nr=1" id="navLink">Journal</a>
+                        <a class="nav-link me-4" href="portfolio.php" id="navLink">Portofolio</a>
+                        <a class="nav-link me-4" href="about.php" id="navLink">About Us</a>
+                        <a class="nav-link me-4" href="contact.php" id="navLink">Contact</a>
                       </div>
                     </div>
                 </div>
             </nav>
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="true">
+            <div id="carouselExampleIndicators home-header" class="carousel slide carousel-fade" data-bs-ride="true">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>

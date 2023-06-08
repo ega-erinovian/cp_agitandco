@@ -36,15 +36,52 @@
   font-family: 'Work Sans', sans-serif;
   font-weight: 700;
 }
+
 :root{
-  /* Abu abu */
   --white: #f9f9ec;
   --grey-700: #504A40;
   --teracotta: #E2725B;
+  --w50 :#857f72;
+  --w400 :#a39e93;
 }
 
 .text-black{color:#2B351A !important;}
 
+/*** ALIGNER ***/
+.Aligner {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 767px) {
+    
+      background-image: none !important;
+  }
+}
+
+.Aligner-item {
+  max-width: 50%;
+  @media (max-width: 767px) {
+    
+    display: none !important;
+  }
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+
+/*** NOSPACE ***/
+.nospace {
+  margin:0;
+  padding:0; 
+}
+
+/*** CONTACT ***/
 .contact-container {
   height: 100vh;
   display: flex;
@@ -126,24 +163,26 @@ header{
 }
 
 header.journal{
-  background-image: linear-gradient(#00000088, #00000000), url(https://images.unsplash.com/photo-1544078751-58fee2d8a03b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+  background-image: linear-gradient(#00000065, #00000000), url(https://images.unsplash.com/photo-1544078751-58fee2d8a03b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
 }
 
 header.portfolio{
-  background-image: linear-gradient(#00000088, #00000000), url(https://images.unsplash.com/photo-1583939411023-14783179e581?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
+  background-image: linear-gradient(#00000065, #00000000), url(https://images.unsplash.com/photo-1583939411023-14783179e581?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80);
 }
 
 /**** NAVBAR ****/
 nav{
   position: absolute;
   top: 0;
+  z-index: 100;
 }
+
 nav .nav-link{
   color: var(--white) !important;
   width: fit-content;
 }
 
-nav .nav-link:hover{
+nav a:hover{
   border-bottom: 3px solid var(--white);
 }
 
@@ -151,6 +190,11 @@ nav a.active{
   border-bottom: 3px solid var(--white);
 }
 
+.dropdown-content{
+  position: absolute;
+  top: 1rem;
+  z-index: 101;
+}
 
 /* navbar for contact */
 .contact-section nav{
@@ -190,7 +234,7 @@ nav a.active{
 
 .journal-details nav a.active{
   border-bottom: 3px solid var(--grey-700);
-}
+} */
 
 .scrolldown{
   position: absolute;
@@ -209,6 +253,9 @@ nav a.active{
 
 /**** HOME ****/
 .carousel{
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100vh;
   width: 100vw;
   overflow-y: hidden;
@@ -244,7 +291,7 @@ nav a.active{
   position: relative;
   height: 480px;
   background-image:
-  linear-gradient(#00000000,#000000a9),url(https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+  linear-gradient(#2b262384,#2b262384),url(https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -268,8 +315,8 @@ nav a.active{
 }
 
 .journal-item:hover{
-  filter: brightness(1.15);
-  -webkit-filter: brightness(1.15);
+  filter: brightness(1.4);
+  -webkit-filter: brightness(1.4);
 }
 
 .journal-item span{
@@ -297,7 +344,7 @@ nav a.active{
 /**** PORTFOLIO ****/
 /* portfolio Container */
 .portfolio-container{
-  width: 100%;
+  width: 100vw;
   position: relative;
   background-color: var(--grey-700);
 }
@@ -322,7 +369,23 @@ nav a.active{
   position: relative;
   height: 480px;
   background-image:
-  linear-gradient(#00000000,#000000a9),url(https://iluminen.com/wp-content/uploads/2023/02/AVW_0466322-scaled.jpg);
+  linear-gradient(#2b262384,#2b262384),url(https://iluminen.com/wp-content/uploads/2023/02/AVW_0466322-scaled.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+.portfolio-item.category{
+  position: relative;
+  height: 356px;
+  width: 100%;
+  background-image:
+  linear-gradient(#2b262384,#2b262384),url(https://iluminen.com/wp-content/uploads/2023/02/AVW_0466322-scaled.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -337,7 +400,17 @@ nav a.active{
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 3rem;
+  margin: 3rem;
+}
+
+.portfolio-item .portfolio-content.category{
+  position: static;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .portfolio-item .portfolio-content button{
@@ -346,8 +419,8 @@ nav a.active{
 }
 
 .portfolio-item:hover{
-  filter: brightness(1.15);
-  -webkit-filter: brightness(1.15);
+  filter: brightness(1.4);
+  -webkit-filter: brightness(1.4);
 }
 
 .portfolio-item span{
@@ -506,7 +579,9 @@ footer .col-lg-2 h1{
 .portfolio-section footer h1,
 .portfolio-section footer p,
 .portfolio-details footer h1,
-.portfolio-details footer p{
+.portfolio-details footer p,
+.about-section footer h1,
+.about-section footer p{
   color: var(--grey-700) !important;
 }
 
@@ -548,4 +623,171 @@ footer .social-media a:hover i{
 .contact-section footer .social-media a:hover i{
   filter: brightness(1);
   -webkit-filter: brightness(1);
+}
+
+/*** ABOUT ***/
+.container-fluid.nospace-about {
+  height: 100%;
+  background-color: var(--w50)!important;
+  color: #000!important;
+  margin:0; padding:0;
+  /* margin-top: -30px; Sesuaikan tinggi navbar Anda */
+  @media (max-width: 767px) {
+    
+    margin-top:0px!important;
+  }
+}
+.container-fluid.nospace-about .h2 .p {
+  color: #000!important;
+}
+.miring{
+  position: fixed;
+  right: 50px; 
+  top:50%; 
+  transform: rotate(90deg);
+  z-index: 100;
+ 
+}
+@media (max-width: 767px) {
+  .miring {
+    display: none;
+  }
+}
+
+.judul{
+  text-align: center;
+  color: var(--w400)!important;
+  /* font-family: "Source Serif Pro"; */
+  font-size: 30px;
+  font-weight: 1000;
+  margin-bottom: 20px;
+  line-height: 25px;
+}
+
+.devisi {
+  text-align: center;
+  color: black!important;
+  /* font-family: "Source Serif Pro"; */
+  font-size: 24px;
+  font-weight: 1000;
+  margin-bottom: 30px;
+  line-height: 25px;
+}
+
+.devisi-active{
+  color: var(--w50)!important;
+ 
+}
+
+#about-filters li {
+  cursor: pointer;
+  color: black!important;
+}
+
+#about-filters li.filter-active {
+  font-weight: bold;
+}
+
+/*Photographer*/
+.photographerName {
+  color: var(--w400)!important;
+  font-family: "Source Serif Pro";
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 0;
+  line-height: 25px;
+  }
+  
+  .photographerHashtag{
+  color: black!important;
+  font-family: "Source Sans Pro";
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 37px;
+  }
+  
+  .photographerDescription {
+
+  max-width: 372px;
+  color: black !important;
+  font-family: "Work Sans";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 35px;
+  }
+
+  @media (max-width: 767px) {
+    .photographerList {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+
+  .teamphoto{
+    text-align: center; 
+  }
+  .teamphoto img {
+    max-width: 100%; /* Memastikan gambar tidak melebihi lebar kontainer */
+    margin: 0 auto; /* Memberikan celah atas dan bawah secara otomatis */
+  }
+ 
+  
+  .photographerDescription .a{
+    
+    max-width: 372px;
+    color: black !important;
+    font-family: "Work Sans";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 35px;
+    }
+  
+  .photographerInstagram {
+  color: black!important;
+  font-family: "Work Sans";
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 25px;
+  }
+  
+  .photographerInstagram:hover {
+  color: #eff0eb;
+  font-family: "Work Sans";
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 25px;
+  }
+  
+  
+  #photographerSection {
+    padding-top: 50px;
+    padding-bottom: 9px;
+  }
+  
+  .photographerList {
+    padding-bottom: 121px;
+    
+  }
+  .about-container img{
+    width: 500px;
+    max-height: 600px;
+  }
+  
+  .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.image-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.image-wrapper img {
+  height: 100%;
+  object-fit: contain;
+  width: auto;
 }

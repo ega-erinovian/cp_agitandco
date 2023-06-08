@@ -35,10 +35,9 @@
               <div class="navbar-nav">
                 <a class="nav-link me-4" href="index.php" id="navLink">Home</a>
                 <a class="nav-link me-4" href="./journal.php?page-nr=1" id="navLink">Journal</a>
-                <a class="nav-link me-4 active" href="./portfolio.php?page-nr=1" id="navLink">Portofolio</a>
-                <a class="nav-link me-4" href="#" id="navLink">About Us</a>
+                <a class="nav-link me-4 active" href="./portfolio.php" id="navLink">Portofolio</a>
+                <a class="nav-link me-4" href="about.php" id="navLink">About Us</a>
                 <a class="nav-link me-4" href="contact.php" id="navLink">Contact</a>
-                <a class="nav-link me-4" href="#" id="navLink"><i class="bi bi-search"></i></a>
               </div>
             </div>
           </div>
