@@ -182,7 +182,7 @@ nav .nav-link{
   width: fit-content;
 }
 
-nav a:hover{
+nav a.nav-link:hover{
   border-bottom: 3px solid var(--white);
 }
 
@@ -273,6 +273,14 @@ nav a.active{
 .home-container{
   width: 100%;
   position: relative;
+}
+
+.carousel-item{
+  min-width: 100vw !important;
+  min-height: 100vh !important;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat
 }
 
 /**** JOURNAL ****/
@@ -435,9 +443,9 @@ nav a.active{
   text-transform: capitalize;
 }
 
-.portfolio-details header.portfolio{
+/* .portfolio-details header.portfolio{
   background-image: linear-gradient(#2a2a2a88, #2a2a2a88), url(https://iluminen.com/wp-content/uploads/2023/02/AVW_0466322-scaled.jpg);
-}
+} */
 
 .portfolio-details-content .portfolio-comp-logo{
   filter: brightness(.5);
@@ -493,6 +501,16 @@ nav a.active{
 .portfolio-section .pagination li a:hover:not(.active) {
   color: var(--grey-700) !important;
   font-weight: bolder;
+}
+
+.portfolio-details-gallery{
+  width: 50%;
+}
+
+@media screen and (max-width:767px){
+  .portfolio-details-gallery{
+    width: 100%;
+  }
 }
 
 /*CONTACT PAGE*/

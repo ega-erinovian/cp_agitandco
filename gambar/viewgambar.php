@@ -201,8 +201,6 @@
                         <th scope="col">#</th>
                         <th scope="col">tempat gambar</th>
                         <th scope="col">img</th>
-                        <!-- <th scope="col">Deskripsi</th>
-                        <th scope="col">Tanggal</th> -->
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -250,6 +248,7 @@
                         <th scope="col">#</th>
                         <th scope="col">tempat gambar</th>
                         <th scope="col">img</th>
+                        <th scope="col">Action</th>
                         <!-- <th scope="col">Deskripsi</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Action</th> -->

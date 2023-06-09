@@ -1,3 +1,7 @@
+<?php 
+  include 'model/connect.php'; 
+  date_default_timezone_get();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,9 +43,21 @@
             </div>
         </nav>
         <!-- Animated navbar -->
+        <?php
+            $query = mysqli_query($connect, "SELECT * FROM background WHERE tempatgambar='contact'");
+            while($data=mysqli_fetch_array($query)){
+              $id_gambar            =$data[0];
+              $tempatgambar         =$data[1];
+              $img_files            =$data[2];
+            }
+
+            if(isset($img_files)){
+                $array_imgs = explode(",", $img_files);
+            }
+        ?>
         <div class="contact-container row">
-            <div class="col-md-6 visible-md visible-lg contact-bg"></div>
-            <div class="col visible-md visible-lg">
+            <div class="col-lg-6 visible-md visible-lg contact-bg" style="background-image:linear-gradient(#1a1a1a69,#1a1a1a69), url(<?='assets/img/page/'.$array_imgs[0]?>);"></div>
+            <div class="col-lg-6 visible-md visible-lg">
                 <div class="contact-section-form" style="max-width: 550px; margin: auto; padding-top: 100px; padding-left: 50px; padding-right: 50px;">
                     <h1 class="source-semibold visible-xs visible-sm">Contact</h1>
                     <p class="work-regular mb-50">

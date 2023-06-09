@@ -43,24 +43,35 @@
                     </div>
                 </div>
             </nav>
-            <div id="carouselExampleIndicators home-header" class="carousel slide carousel-fade" data-bs-ride="true">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="true">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <?php
+                        include 'model/connect.php'; 
+                        $query = mysqli_query($connect, "SELECT * FROM background WHERE tempatgambar='home'");
+                        while($data=mysqli_fetch_array($query)){
+                            $id_gambar    =$data[0];
+                            $tempatGambar =$data[1];
+                            $img          =$data[2];
+                        }
+
+                        $array_imgs = explode(",", $img);
+                        $i=0;
+                        foreach($array_imgs as $img ){
+                    ?>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=<?= $i ?> class="<?php if(array_search($img, $array_imgs) == 0) echo 'active' ?>" aria-current="true" aria-label="Slide 1"></button>
+                    <?php $i++; } ?>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="2000">
-                        <img src="https://iluminen.com/wp-content/uploads/2022/09/KICS000043-scaled-1.jpg" class="d-block w-100" alt="...">
+                    <?php
+                        foreach($array_imgs as $img ){
+                    ?>
+                    <div class="carousel-item <?php if(array_search($img, $array_imgs) == 0) echo 'active' ?> " style="background-image: linear-gradient(#00000065, #00000000), url(<?='assets/img/page/home/'.$img?>);">
                     </div>
-                    <div class="carousel-item" data-bs-interval="2000">
-                        <img src="https://iluminen.com/wp-content/uploads/2021/07/kintamani-bedugul-indonesia-jenice-darwin-connection-session-iluminen-bali-photography-junebug-photobug-dirtybootsmessyhair-destination-photographer001-scaled-1.jpg" class="d-block w-100" alt="...">
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </header>
-        <div class="home-container" id='home'>
-            
-        </div>
+        <p class="miring work-medium visible-md visible-lg">Agit & Co</p>
         <?php include("footer.html"); ?>
     </section>
     

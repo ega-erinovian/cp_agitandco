@@ -23,18 +23,18 @@
 </head>
 <body>
     <section class="portfolio-section">
-    <?php
-            $query = mysqli_query($connect, "SELECT * FROM background WHERE tempatgambar='portofolio'");
+        <?php
+            $query = mysqli_query($connect, "SELECT * FROM background WHERE tempatgambar='journal'");
             while($data=mysqli_fetch_array($query)){
               $id_gambar            =$data[0];
               $tempatgambar         =$data[1];
-              $img_files                  =$data[2];}
-            $array_imgs = explode(",", $img_files);
-            $i =0;
-            foreach($array_imgs as $img ){
-            $i++;
-            // echo 'assets/img/page/'.$img;
-            ?>
+              $img_files            =$data[2];
+            }
+
+            if(isset($img_files)){
+                $array_imgs = explode(",", $img_files);
+            }
+        ?>
         <header class="portfolio" style="background-image: linear-gradient(#00000065, #00000000),url(<?='assets/img/page/'.$img?>)!important; background-size: cover; background-position: center; background-repeat: no-repeat;">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
@@ -58,7 +58,6 @@
             <div class="scrolldown text-light text-center w-100">
                 <i class="bi bi-arrow-down"></i>
             </div>
-            <?php }?>
         </header>
         <p class="miring work-medium visible-md visible-lg ">Portfolio</p>
         <div class="portfolio-container" id='portfolio'>

@@ -67,7 +67,7 @@
           <div class="portfolio-comp-logo w-100 d-flex align-items-center justify-content-center">
             <img src="assets/img/me.png" alt="logo" width="50" />
           </div>
-          <div class="portfolio-details-gallery w-50 d-flex flex-wrap mt-5 g-4">
+          <div class="portfolio-details-gallery container d-flex flex-wrap justify-content-center mt-5 g-4">
           <?php
             $array_imgs = explode(",", $img_files);
             $i = 0;

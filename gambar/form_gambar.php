@@ -162,9 +162,8 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item ">Home</li>
-          <li class="breadcrumb-item ">Projects</li>
-          <li class="breadcrumb-item ">Tabel Projects</li>
-          <li class="breadcrumb-item active">Kelola Project</li>
+          <li class="breadcrumb-item ">Tabel Gambar</li>
+          <li class="breadcrumb-item ">Kelola Gambar</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -231,8 +230,8 @@
                         <option selected disabled>Open this select menu</option>
                         <option value="home" <?php if($tempatgambar =="home") echo 'selected'; ?>>Home</option>
                         <option value="portofolio" <?php if($tempatgambar =="portofolio") echo 'selected'; ?>>Portofolio</option>
+                        <option value="journal" <?php if($tempatgambar =="journal") echo 'selected'; ?>>Journal</option>
                         <option value="contact" <?php if($tempatgambar =="contact") echo 'selected'; ?>>Contact</option>
-
                       </select>
                       <!-- <input type="date" class="form-control" name="tanggal" id="projectName" value=<?= $tanggal ?>/> -->
                     </div>
@@ -264,7 +263,7 @@
                           ?>
                           <tr>
                             <td><input type="checkbox" name="delete_img[ ]" value="<?= $img ?>"></td>
-                            <td><img style="width: 75px" src='<?php echo "../assets/img/page/".$id_gambar."/".$img; ?>' alt="<?= $id_gambar ?>"></td>
+                            <td><img style="width: 75px" src='<?php if($tempatgambar == "home") echo "../assets/img/page/home/".$img; else echo "../assets/img/page/".$img; ?>' alt="<?= $id_gambar ?>"></td>
                             <td><?= $img ?></td>
                           </tr>
                           <?php } ?>

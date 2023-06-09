@@ -6,6 +6,7 @@
     $tableName='background';
 
     $array_img = [];
+    $tmp_img_name = '';
 
     $query = mysqli_query($connect, "SELECT * FROM ".$tableName." WHERE id_gambar = '$_POST[id_gambar]'");
     while($data=mysqli_fetch_array($query)){
@@ -14,7 +15,7 @@
     
     if(isset($_POST)){
         $id_gambar     = $_POST['id_gambar'];
-        $tempatgambar       = $_POST['tempatgambar'];
+        $tempatgambar  = $_POST['tempatgambar'];
         
         
         if(isset($_POST['delete_img'])){
@@ -22,15 +23,18 @@
         }
 
         // Membuat folder baru untuk menyimpan gambar
-        if(!file_exists("../assets/img/page/".$id_gambar)){
-            mkdir("../assets/img/page/".$id_gambar);
+        if($tempatgambar == "home"){
+            if(!file_exists("../assets/img/page/".$tempatgambar)){
+                mkdir("../assets/img/page/".$tempatgambar);
+            }
         }
 
         
         if(isset($_FILES['img_file'])){
-            $originalArray = explode(',', $tmp_img_name);
             if($tmp_img_name==''){
                 $originalArray=[];
+            }else{
+                $originalArray = explode(',', $tmp_img_name);
             }
             // Loop melalui setiap file yang diunggah
             foreach($_FILES['img_file']['tmp_name'] as $key => $tmp_name) {
@@ -47,7 +51,11 @@
                     }
                     
                     // Memindah file ke folder
-                    $uploaded_path = '../assets/img/page/'.$id_gambar.'/'.$tempatgambar_file;
+                    if($tempatgambar == "home"){
+                        $uploaded_path = '../assets/img/page/home/'.$tempatgambar_file;
+                    }else{
+                        $uploaded_path = '../assets/img/page/'.$tempatgambar_file;
+                    }
                     move_uploaded_file($tmp_name, $uploaded_path);
                 }
             }
@@ -63,18 +71,27 @@
         }
     }
 
+    $tmp_tempatGambar = array();
+    $query = mysqli_query($connect, "SELECT * FROM ".$tableName);
+    while($data=mysqli_fetch_array($query)){
+        $tmp_tempatGambar[] = $data[1];
+    }
+
     switch($_POST['kelola']){
         case 'tambah':
             $query = "INSERT INTO ".$tableName." VALUE('$id_gambar', '$tempatgambar', '$string_img')";
-            if(mysqli_query($connect, $query)){
-                // send message to table log_activities
-                echo "Data Added Successfully";
-                header('Location: ../gambar/viewgambar.php?berhasil');
+            if(empty(array_search($tempatgambar, $tmp_tempatGambar))){
+                if(mysqli_query($connect, $query)){
+                    // send message to table log_activities
+                    echo "Data Added Successfully";
+                    header('Location: ../gambar/viewgambar.php?berhasil');
+                }else{
+                    unlink($uploaded_path);
+                    echo "Failed Adding Data: ".mysqli_error($connect);
+                    header('Location: ../gambar/viewgambar.php?'.mysqli_error($connect).'');
+                }
             }else{
-                
-                unlink($uploaded_path);
-                echo "Failed Adding Data: ".mysqli_error($connect);
-                header('Location: ../gambar/viewgambar.php?'.mysqli_error($connect).'');
+                header('Location: ../gambar/viewgambar.php?pesan="Halaman sudah ada silahkan lakukan edit"');
             }
             break;
         case 'edit':
@@ -124,7 +141,7 @@
                 if (isset($delete_img)) {
                     $originalArray = explode(',', $tmp_img_name);
                     foreach ($delete_img as $img) {
-                        $path = realpath('../assets/img/page/' . $id_gambar . '/' . $img);
+                        $path = realpath('../assets/img/page/' . $img);
                         unlink($path);
                 
                         // Menghapus nilai pada array
@@ -164,15 +181,19 @@
             header('Location: ../gambar/viewgambar.php');
             break;
 
-        case 'hapus':
+        case 'hapus':            
             $query = "DELETE FROM ".$tableName." WHERE `id_gambar` = '$_POST[id_gambar]'";
-            $path = realpath('../assets/img/page/'.$id_gambar);
-
+            $path = '../assets/img/page/'.$tmp_img_name;
+            echo $tempatgambar_file;
             if(mysqli_query($connect, $query)){
-                // Hapus folder gambar
-                array_map('unlink', glob("$path/*.*"));
-                rmdir($path);
-
+                if($tempatgambar == "home"){
+                    // Hapus folder gambar
+                    $path = realpath('../assets/img/page/home/');
+                    array_map('unlink', glob("$path/*.*"));
+                    rmdir($path);
+                }else{
+                    unlink($path);
+                }
                 // send message to table log_activities
                 echo "Data Deleted Successfully";
             }
