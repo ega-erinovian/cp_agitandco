@@ -58,7 +58,7 @@
     <!-- Logo -->
     <div class="row align-items-center" style="margin-left: -1.5rem;">
       <div class="col">
-        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="bi bi-list toggle-sidebar-btn"></i></a>
       </div>
       <div class="col">
         <a href="../admin.php" class="logo d-flex align-items-center">
@@ -111,11 +111,55 @@
   </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
-  <?php require_once '../template/sidebar.php' ?>
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Agit & Co</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+    <ul class="sidebar-nav" id="sidebar-nav">
+          <!-- Dashboard Nav -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="../admin.php">
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Dashboard</span>
+            </a>
+          </li><!-- End Dashboard Nav -->
+          <!-- Projects -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="../gambar/viewgambar.php">
+              <i class="bi bi-camera-fill"></i>
+              <span>Kelola Gambar</span>
+            </a>
+          </li><!-- End Projects -->
+          <!-- Journal -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="../journal/viewjournal.php">
+            <i class="bi bi-journal-bookmark-fill"></i>
+              <span>Journals</span>
+            </a>
+          </li><!-- End Journal -->
+          <!-- Projects -->
+          <li class="nav-item">
+            <a class="nav-link " href="./tabel_project.php">
+              <i class="bi bi-folder-fill"></i>
+              <span>Projects</span>
+            </a>
+          </li><!-- End Projects -->
+          <!-- Team -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="../projects/team.php">
+              <i class="bi bi-people-fill"></i>
+              <span>Team</span>
+            </a>
+          </li><!-- End Team -->
+        </ul>
+    </div>
+  </div>
   <!-- End Sidebar -->
 
   <!-- ======= Main ======= -->
-  <main id="main" class="main">
+  <main id="main" class="main mt-5 pt-5" style="margin: 0;">
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
@@ -236,7 +280,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <footer id="footer" class="footer" style="margin: 0;">
     <div class="copyright">
       &copy; Copyright <strong><span>Sirius</span></strong>. All Rights Reserved
     </div>

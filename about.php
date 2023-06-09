@@ -25,7 +25,7 @@
                 <a class="navbar-brand" href="#">
                     <img src="assets/img/me.png" alt="logo" width="75" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="color: #f9f9ec !important">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -53,7 +53,7 @@
             </div>
             <div class="container-fluid nospace" id="photographerSection">
                 <h1 id="meetourteam"class="judul work-bold">Meet Our Team</h1>
-                    <div class="devisi">
+                    <div class="devisi" style="overflow: hidden;">
                         <a href="#meetourteam" onclick="toggleContent('Photographer')" id="photographerLink" class="devisi">Photographer</a> | 
                         <a href="#meetourteam" onclick="toggleContent('Videographer')" id="videographerLink" class="devisi">Videographer</a> | 
                         <a href="#meetourteam" onclick="toggleContent('Team')" id="teamLink" class="devisi">Team</a> |
@@ -75,7 +75,7 @@
                 <div id="about" class="container about-container">
                     <?php
                     include 'model/connect.php'; 
-                    $query = mysqli_query($connect, "SELECT * FROM team ");
+                    $query = mysqli_query($connect, "SELECT * FROM team");
                     while($data=mysqli_fetch_array($query)){
                         $id_team            =$data[0];
                         $nama               =$data[1];
@@ -83,7 +83,6 @@
                         $ig                 =$data[3];
                         $devisi             =$data[4];
                         $img                =$data[5];
-
                     ?>
                     <div class="row">
                         <div class="col-md-2"></div>

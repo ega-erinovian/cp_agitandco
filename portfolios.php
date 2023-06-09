@@ -77,8 +77,10 @@
                             $lokasi     = $data[2];
                             $kategori   = $data[4];
                             $img        = $data[5];
+
+                            $array_imgs = explode(",", $img);
                     ?>
-                    <div class="portfolio-item col-lg-6 text-light">
+                    <div class="portfolio-item col-lg-6 text-light" style="background-image: linear-gradient(#2b262384,#2b262384),url(<?='assets/img/portofolio/'.$id_project.'/'.$array_imgs[0];?>);">
                         <div class="portfolio-content">
                             <span><?= $kategori ?></span>
                             <form action="./portfolio_details.php" method="get" enctype="multipart/form-data">

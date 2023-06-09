@@ -21,8 +21,20 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
+        <?php 
+          $query = mysqli_query($connect, "SELECT * FROM projects WHERE id_project='$_GET[id_project]'");
+          while($data=mysqli_fetch_array($query)){
+            $id_project = $data[0];
+            $name       = $data[1];
+            $lokasi     = $data[2];
+            $kategori   = $data[4];
+            $img_files        = $data[5];
+          }
+
+          $array_imgs = explode(",", $img_files);
+        ?>
     <section class="portfolio-details">
-      <header class="portfolio">
+      <header class="portfolio" style="background-image: linear-gradient(#2b262384,#2b262384),url(<?='assets/img/portofolio/'.$id_project.'/'.$array_imgs[0];?>);">
         <nav class="navbar navbar-expand-lg">
           <div class="container">
             <a class="navbar-brand" href="#">
@@ -42,15 +54,6 @@
             </div>
           </div>
         </nav>
-        <?php 
-          $query = mysqli_query($connect, "SELECT * FROM projects WHERE id_project='$_GET[id_project]'");
-          while($data=mysqli_fetch_array($query)){
-            $id_project = $data[0];
-            $name       = $data[1];
-            $lokasi     = $data[2];
-            $kategori   = $data[4];
-            $img        = $data[5];
-        ?>
         <div class="portfolio-details-title text-center w-100 h-75 d-flex flex-column align-items-center justify-content-center">
           <p><?= $kategori ?></p>
           <h1><?= $name ?> | <?= $lokasi ?></h1>
@@ -65,14 +68,20 @@
             <img src="assets/img/me.png" alt="logo" width="50" />
           </div>
           <div class="portfolio-details-gallery w-50 d-flex flex-wrap mt-5 g-4">
-            <img class="landscape" src="https://iluminen.com/wp-content/uploads/2023/02/001-storyboard-3.jpg" alt="portfolio-1">
-            <img class="w-50" src="https://images.pexels.com/photos/13293704/pexels-photo-13293704.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="portfolio-2">
-            <img class="w-50" src="https://images.pexels.com/photos/15124705/pexels-photo-15124705/free-photo-of-newlyweds-walking-in-darkness.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-            <img src="https://iluminen.com/wp-content/uploads/2023/02/007-storyboard-3.jpg" alt="portfolio-4">
-          </div>
+          <?php
+            $array_imgs = explode(",", $img_files);
+            $i = 0;
+            foreach ($array_imgs as $img) {
+              $i++;
+          ?>
+            <img id="portfolio-image" src="<?='assets/img/portofolio/'.$id_project.'/'.$img;?>" alt="portfolio">
+            <?php
+          }
+          ?>
+        </div>
+    
         </div>
       </div>
-      <?php } ?>
       <?php include("footer.html"); ?>
     </section>
     
@@ -87,5 +96,30 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      var images = document.querySelectorAll('.portfolio-details-gallery img');
+
+      images.forEach(function(image) {
+        var img = new Image();
+        img.src = image.src;
+
+        img.addEventListener('load', function() {
+          var threshold = 1; // Ubah sesuai dengan rasio yang diinginkan (misal: 1.5 untuk landscape)
+
+          if (img.naturalWidth / img.naturalHeight > threshold) {
+            // Gambar memiliki rasio landscape (lebar lebih besar dari tinggi)
+            image.classList.add('landscape');
+          } else {
+            // Gambar tidak memiliki rasio landscape
+            image.classList.add('w-50');
+          }
+        });
+
+        img.addEventListener('error', function() {
+          console.log('Gagal memuat gambar');
+        });
+  });
+</script>
+
 </body>
 </html>

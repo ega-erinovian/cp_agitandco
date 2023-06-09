@@ -51,21 +51,28 @@
           $judul      =$data[2];
           $deskripsi  =$data[3];
           $tanggal    =$data[4];
-          $img        =$data[5];
+          $img_files  =$data[5];
+        }
       ?>
       <div class="container d-flex flex-column align-items-center">
         <div class="journal-details-header text-center">
           <h1 class="journal-details-title"><?= $judul ?></h1>
           <p class="journal-detail-subtitle"><?= $kategori ?></p>
         </div>
-        <div class="journal-details-cover w-100 d-flex justify-content-center my-5">
-          <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="cover" height="480px">
+        <div class="journal-details-cover w-100 d-flex flex-wrap justify-content-center my-5">
+        <?php
+            $array_imgs = explode(",", $img_files);
+            $i = 0;
+            foreach ($array_imgs as $img) {
+              $i++;
+          ?>
+          <img src="<?='assets/img/journal/'.$id_journal.'/'.$img;?>" alt="cover" height="480px" class="mb-3">
+          <?php } ?>
         </div>
         <div class="journal-details-text text-center w-50">
-          <p><?= $deskripsi ?></p>
+          <p style="text-align: justify;"><?= $deskripsi ?></p>
         </div>
       </div>
-      <?php } ?>
     </div>
     <?php include("footer.html"); ?>
   </section>
